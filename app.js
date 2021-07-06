@@ -1,3 +1,8 @@
+const validator = require('validator');
 const getNotes = require('./notes.js');
 
-console.log(getNotes());
+const msg = getNotes()
+
+console.log(msg);
+
+console.log(validator.isURL('www.google.com'));
