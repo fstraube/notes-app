@@ -1,11 +1,37 @@
 const chalk = require('chalk');
-const validator = require('validator');
+const yargs = require('yargs');
 const getNotes = require('./notes.js');
 
-const msg = getNotes()
+yargs.command({
+  command: 'add',
+  describe: 'Add a new note',
+  handler: () => {
+    console.log('Adding a new note!');
+  },
+});
 
-console.log(msg);
+yargs.command({
+  command: 'remove',
+  describe: 'Remove a note',
+  handler: () => {
+    console.log('Removing a note!');
+  },
+});
 
-console.log(validator.isURL('www.google.com'));
+yargs.command({
+  command: 'read',
+  describe: 'Read a note',
+  handler: () => {
+    console.log('Reading a note!');
+  },
+});
 
-console.log(chalk.bold.green('Success!'));
+yargs.command({
+  command: 'list',
+  describe: 'List all notes',
+  handler: () => {
+    console.log('Listing all notes!');
+  },
+});
+
+console.log(yargs.argv);
